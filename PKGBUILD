@@ -14,8 +14,12 @@ pkgdesc="Plugin and hook calling mechanisms for python"
 arch=(
   'any'
 )
-url="https://github.com/pytest-dev/pluggy"
-license=('MIT')
+_http="https://github.com"
+_ns="pytest-dev"
+url="${_http}/${_ns}/${_pkg}"
+license=(
+  'MIT'
+)
 depends=(
   "${_py}"
 )
@@ -27,7 +31,7 @@ checkdepends=(
   "${_py}-pytest"
 )
 source=(
-  "git+https://github.com/pytest-dev/${_pkg}.git#commit=${_commit}"
+  "git+${url}.git#commit=${_commit}"
 )
 sha512sums=(
   'SKIP'
