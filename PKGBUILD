@@ -1,10 +1,19 @@
 # SPDX-License-Identifier: AGPL-3.0
 #
 # Maintainer: Felix Yan <felixonmars@archlinux.org>
-# Contributor: Pellegrino Prevete (tallero) <pellegrinoprevete@gmail.com>
-# Contributor: Truocolo <truocolo@aol.com>
+# Maintainer: Pellegrino Prevete (tallero) <pellegrinoprevete@gmail.com>
+# Maintainer: Truocolo <truocolo@aol.com>
 
 _py="python"
+_pyver="$( \
+  "${_py}" \
+    -V | \
+    awk \
+      '{print $2}')"
+_pymajver="${_pyver%.*}"
+_pyminver="${_pymajver#*.}"
+_pynextver="${_pymajver%.*}.$(( \
+  ${_pyminver} + 1))"
 _pkg="pluggy"
 pkgname="${_py}-${_pkg}"
 pkgver=1.3.0
@@ -21,7 +30,8 @@ license=(
   'MIT'
 )
 depends=(
-  "${_py}"
+  "${_py}>=${_pymajver}"
+  "${_py}<${_pynextver}"
 )
 makedepends=(
   'git'

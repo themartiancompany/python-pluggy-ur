@@ -8,7 +8,8 @@ pkgbase = python-pluggy
 	checkdepends = python-pytest
 	makedepends = git
 	makedepends = python-setuptools-scm
-	depends = python
+	depends = python>=3.12
+	depends = python<3.13
 	source = git+https://github.com/pytest-dev/pluggy.git#commit=e13a58c5039bf7a8aa6a46a77244aea48b210510
 	sha512sums = SKIP
 
